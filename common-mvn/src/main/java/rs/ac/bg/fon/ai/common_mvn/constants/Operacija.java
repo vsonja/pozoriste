@@ -1,0 +1,26 @@
+package rs.ac.bg.fon.ai.common_mvn.constants;
+
+/**
+ *
+ * @author Sonja
+ */
+public enum Operacija {
+
+    PRIJAVI,
+    ODJAVI,
+    KREIRAJ_GLUMCA,
+    VRATI_SVE_GLUMCE,
+    VRATI_GLUMCA,
+    OBRISI_GLUMCA,
+    KREIRAJ_PREDSTAVU,
+    VRATI_SVE_PREDSTAVE,
+    VRATI_PREDSTAVU,
+    OBRISI_PREDSTAVU,
+    KREIRAJ_ULOGU,
+    VRATI_SVE_SALE,
+    KREIRAJ_REPERTOAR,
+    KREIRAJ_STAVKU_REPERTOARA,
+    VRATI_SVE_KOSTIME,
+    VRATI_SVE_REKVIZITE,
+
+}
