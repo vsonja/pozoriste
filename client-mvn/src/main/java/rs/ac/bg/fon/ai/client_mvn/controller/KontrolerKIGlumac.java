@@ -7,7 +7,14 @@ import rs.ac.bg.fon.ai.client_mvn.form.FrmGlumci;
 import rs.ac.bg.fon.ai.client_mvn.form.FrmNoviGlumac;
 import rs.ac.bg.fon.ai.client_mvn.form.OpstaEkranskaForma;
 import rs.ac.bg.fon.ai.client_mvn.form.model.TableModelGlumac;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  *
@@ -72,11 +79,19 @@ public class KontrolerKIGlumac extends OpstiKontrolerKI {
                 List<Glumac> glumci = (List<Glumac>) odgovor.getRezultat();
                 TableModelGlumac tmg = new TableModelGlumac(glumci);
                 forma.getTblGlumci().setModel(tmg);
+                
+                try(PrintWriter out = new PrintWriter(new FileWriter("glumci.json"))){
+        			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        			out.print(gson.toJson(glumci));
+        		} catch (IOException e) {
+        			e.printStackTrace();
+        		}
+                forma.prikaziPoruku("Glumci su sacuvani u JSON fajl.", "JSON");
             } else {
                 forma.prikaziPoruku(odgovor.getPoruka(), "");
                 forma.dispose();
             }
-
         } catch (Exception ex) {
             forma.prikaziPoruku(odgovor.getPoruka(), "Greška");
             ex.printStackTrace();
