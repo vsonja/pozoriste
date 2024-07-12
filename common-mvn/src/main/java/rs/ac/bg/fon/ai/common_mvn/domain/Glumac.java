@@ -7,19 +7,52 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Predstavlja glumca zaposlenog u pozorištu.
+ * Glumac ima glumacID, ime, prezime i telefon.
+ * 
+ * Ova klasa nasledjuje apstraktnu klasu OpstiDomenskiObjekat i implementira interfejs Serializable, jer se podaci salju kroz mrezu.
  *
  * @author Sonja
+ * @version 1.0
  */
 public class Glumac extends OpstiDomenskiObjekat implements Serializable {
 
+	/**
+	 * Jedinstveni identifikator glumca kao Integer.
+	 */
     private Integer glumacID;
+    
+    /**
+     * Ime glumca kao String.
+     */
     private String ime;
+    
+    /**
+     * Prezime glumca kao String.
+     */
     private String prezime;
+    
+    /**
+     * Broj telefona glumca kao String.
+     */
     private String telefon;
 
+    /**
+     * Pravi nov objekat klase Glumac.
+     * 
+     * Svi njegovi atributi (glumacID, ime, prezime i telefon) ostaju neinicijalizovani.
+     */
     public Glumac() {
     }
 
+    /**
+     * Pravi novog glumca i postavlja jedinstveni identifikator glumca, ime, prezime i telefon na unete vrednosti.
+     * 
+     * @param glumacID Jedinstveni identifikator glumca kao Integer.
+     * @param ime Ime glumca kao String.
+     * @param prezime Prezime glumca kao String.
+     * @param telefon Broj telefona glumca kao String.
+     */
     public Glumac(Integer glumacID, String ime, String prezime, String telefon) {
         this.glumacID = glumacID;
         this.ime = ime;
@@ -27,49 +60,101 @@ public class Glumac extends OpstiDomenskiObjekat implements Serializable {
         this.telefon = telefon;
     }
 
+    /**
+     * Pravi novog glumca i postavlja ime, prezime i telefon na unete vrednosti.
+     * 
+     * @param ime Ime glumca kao String.
+     * @param prezime Prezime glumca kao String.
+     * @param telefon Broj telefona glumca kao String.
+     */
     public Glumac(String ime, String prezime, String telefon) {
         this.ime = ime;
         this.prezime = prezime;
         this.telefon = telefon;
     }
 
+    /**
+     * Vraca jedinstveni identifikator glumca.
+     * 
+     * @return Trenutni identifikator glumca kao Integer.
+     */
     public Integer getGlumacID() {
         return glumacID;
     }
 
+    /**
+     * Postavlja jedinstveni identifikator glumca na unetu vrednost.	 * 
+	 * 
+     * @param glumacID Jedinstveni identifikator glumca kao Integer.
+     */
     public void setGlumacID(Integer glumacID) {
         this.glumacID = glumacID;
     }
 
+    /**
+     * Vraca ime glumca.
+     * 
+     * @return Trenutno ime glumca kao String.
+     */
     public String getIme() {
         return ime;
     }
 
+    /**
+     * Postavlja ime glumca na unetu vrednost.
+     * 
+     * @param ime Ime glumca kao String.
+     */
     public void setIme(String ime) {
         this.ime = ime;
     }
 
+    /**
+     * Vraca prezime glumca.
+     * 
+     * @return Trenutno prezime glumca kao String.
+     */
     public String getPrezime() {
         return prezime;
     }
 
+    /**
+     * Postavlja prezime glumca na unetu vrednost.
+     * 
+     * @param prezime Prezime glumca kao String.
+     */
     public void setPrezime(String prezime) {
         this.prezime = prezime;
     }
 
+    /**
+     * Vraca broj telefona glumca.
+     * 
+     * @return Trenutni broj telefona glumca kao String.
+     */
     public String getTelefon() {
         return telefon;
     }
 
+    /**
+     * Postavlja broj telefona glumca na unetu vrednost.
+     * 
+     * @param telefon Broj telefona glumca kao String.
+     */
     public void setTelefon(String telefon) {
         this.telefon = telefon;
     }
 
+    /**
+     * Vraca String reprezentaciju objekta klase Glumac.
+     * 
+     * @return String reprezentacija objekta klase Glumac u formatu "ime prezime".
+     */
     @Override
     public String toString() {
         return ime + " " + prezime;
     }
-
+    
     @Override
     public String getTableName() {
         return "glumac";
