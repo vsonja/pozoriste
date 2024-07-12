@@ -48,7 +48,7 @@ public abstract class OpstiDomenskiObjekat {
      * Ovaj uslov se razlikuje u zavisnosti od kriterijuma.
      * 
      * @param kriterijum Kriterijum na osnovu kog se vraca uslov, tipa UslovWhere koji je Enum.
-     * @return
+     * @return Uslov koji je deo upta kao String.
      */
     public abstract String getWhereContidion(UslovWhere kriterijum);
 

@@ -99,7 +99,7 @@ public class Kostim extends OpstiDomenskiObjekat implements Serializable {
     /**
      * Postavlja jedinstveni identifikator kostima na unetu vrednost.
 	 * 
-     * @param glumacID Jedinstveni identifikator kostima kao Integer.
+     * @param kostimID Jedinstveni identifikator kostima kao Integer.
      */
     public void setKostimID(Integer kostimID) {
         this.kostimID = kostimID;

@@ -6,15 +6,23 @@ import rs.ac.bg.fon.ai.common_mvn.domain.OpstiDomenskiObjekat;
 import rs.ac.bg.fon.ai.common_mvn.domain.Predstava;
 
 /**
+ * Predstavlja sistemsku operaciju za brisanje predstave.
+ * 
+ * Ova klasa nasledjuje opstu sistemsku operaciju (OpstaSO).
  *
  * @author Sonja
+ * @version 1.0
  */
 public class SOObrisiPredstavu extends OpstaSO {
 
-    public SOObrisiPredstavu() throws Exception {
+    public SOObrisiPredstavu() {
         super();
     }
 
+    /**
+     * Poziva se operacija za brisanje predstave iz baze podataka, koja vraca boolean vrednost u zavisnosti od rezultata izvrsenja.
+     * U skladu sa tim se postavlja vrednost poruke i statusa operacije.
+     */
     @Override
     protected void executeOperation(OpstiDomenskiObjekat odo) throws Exception {
         if (!dbb.obrisiObjekat(odo)) {
@@ -26,6 +34,13 @@ public class SOObrisiPredstavu extends OpstaSO {
         }
     }
 
+    /**
+     * Metoda proverava da li je prosledjeni domenski objekat validan, odnosno razlicit od null i instanca klase Predstava.
+     * 
+     * @param odo Opsti domenski objekat nad kojim se vrsi validacija.
+     * @throws java.lang.NullPointerException Ukoliko je prosledjeni objekat null.
+     * @throws java.lang.IllegalArgumentException Ukoliko prosledjeni objekat nije instanca klase Predstava.
+     */
     @Override
     protected void validate(OpstiDomenskiObjekat odo) throws Exception {
         if (odo == null) {

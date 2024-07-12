@@ -83,7 +83,7 @@ public class Glumac extends OpstiDomenskiObjekat implements Serializable {
     }
 
     /**
-     * Postavlja jedinstveni identifikator glumca na unetu vrednost.	 * 
+     * Postavlja jedinstveni identifikator glumca na unetu vrednost. 
 	 * 
      * @param glumacID Jedinstveni identifikator glumca kao Integer.
      */
