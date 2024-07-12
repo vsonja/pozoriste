@@ -125,7 +125,10 @@ public class Korisnik extends OpstiDomenskiObjekat implements Serializable {
      * @param ime Ime korisnika kao String.
      */
     public void setIme(String ime) {
-        this.ime = ime;
+    	if (ime != null && !ime.chars().allMatch(Character::isLetter)) {
+			throw new IllegalArgumentException();
+		}
+		this.ime = ime;
     }
 
     /**
@@ -143,7 +146,10 @@ public class Korisnik extends OpstiDomenskiObjekat implements Serializable {
      * @param prezime Prezime korisnika kao String.
      */
     public void setPrezime(String prezime) {
-        this.prezime = prezime;
+    	if (prezime != null && !prezime.chars().allMatch(Character::isLetter)) {
+			throw new IllegalArgumentException();
+		}
+		this.prezime = prezime;
     }
 
     /**
@@ -161,6 +167,9 @@ public class Korisnik extends OpstiDomenskiObjekat implements Serializable {
      * @param korisnickoIme Korisnicko ime korisnika kao String.
      */
     public void setKorisnickoIme(String korisnickoIme) {
+    	if (korisnickoIme.length() < 5) {
+			throw new IllegalArgumentException();
+		}
         this.korisnickoIme = korisnickoIme;
     }
 
@@ -179,6 +188,9 @@ public class Korisnik extends OpstiDomenskiObjekat implements Serializable {
      * @param sifra Sifra korisnika kao String.
      */
     public void setSifra(String sifra) {
+    	if (sifra.length() < 5) {
+			throw new IllegalArgumentException();
+		}
         this.sifra = sifra;
     }
 
