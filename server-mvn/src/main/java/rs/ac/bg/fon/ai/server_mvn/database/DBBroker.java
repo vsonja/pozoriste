@@ -22,7 +22,7 @@ public class DBBroker {
 
     public void connect() throws FileNotFoundException, IOException, SQLException {
         Properties properties = new Properties();
-        properties.load(new FileInputStream("src/config/config.properties"));
+        properties.load(new FileInputStream("src/main/java/rs/ac/bg/fon/ai/server_mvn/config/config.properties"));
         String url = properties.getProperty("db.url");
         String username = properties.getProperty("db.username");
         String password = properties.getProperty("db.password");
