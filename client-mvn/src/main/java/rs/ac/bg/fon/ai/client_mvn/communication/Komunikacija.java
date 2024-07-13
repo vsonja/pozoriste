@@ -20,16 +20,16 @@ public class Komunikacija {
     private Socket socket;
 
     private Komunikacija() {
-        try {
-            Properties props = new Properties();
-            props.load(new FileInputStream("src/config/server.properties"));
-            String serverAddress = props.getProperty("server.address");
-            int port = Integer.parseInt(props.getProperty("server.port"));
-            socket = new Socket(serverAddress, port);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+	    try {
+	        Properties props = new Properties();
+	        props.load(new FileInputStream("src/main/java/rs/ac/bg/fon/ai/client_mvn/config/server.properties"));
+	        String serverAddress = props.getProperty("server.address");
+	        int port = Integer.parseInt(props.getProperty("server.port"));
+	        socket = new Socket(serverAddress, port);
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
 
     public static Komunikacija getInstance() {
         if (instanca == null) {

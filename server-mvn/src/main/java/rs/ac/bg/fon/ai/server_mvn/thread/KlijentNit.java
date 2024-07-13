@@ -103,7 +103,7 @@ public class KlijentNit extends Thread {
 
                 posaljiOdgovor(odgovor);
             } catch (Exception ex) {
-                ex.printStackTrace();
+                // ex.printStackTrace();
             }
         }
         serverNit.izbaciKlijenta(this);
