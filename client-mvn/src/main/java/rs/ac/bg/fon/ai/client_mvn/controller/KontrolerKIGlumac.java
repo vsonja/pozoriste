@@ -87,7 +87,7 @@ public class KontrolerKIGlumac extends OpstiKontrolerKI {
         		} catch (IOException e) {
         			e.printStackTrace();
         		}
-                forma.prikaziPoruku("Glumci su sacuvani u JSON fajl.", "JSON");
+                forma.prikaziPoruku("Glumci su sačuvani u JSON fajl.", "JSON");
             } else {
                 forma.prikaziPoruku(odgovor.getPoruka(), "");
                 forma.dispose();

@@ -7,7 +7,14 @@ import rs.ac.bg.fon.ai.client_mvn.form.FrmNovaPredstava;
 import rs.ac.bg.fon.ai.client_mvn.form.FrmPredstave;
 import rs.ac.bg.fon.ai.client_mvn.form.OpstaEkranskaForma;
 import rs.ac.bg.fon.ai.client_mvn.form.model.TableModelPredstava;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  *
@@ -64,11 +71,19 @@ public class KontrolerKIPredstava extends OpstiKontrolerKI {
 
             odgovor = SOPretrazi(Operacija.VRATI_SVE_PREDSTAVE);
 
-            forma.prikaziPoruku(odgovor.getPoruka(), "");
             if (odgovor.getStatus() == Status.SUCCESS) {
                 List<Predstava> predstave = (List<Predstava>) odgovor.getRezultat();
                 TableModelPredstava tmp = new TableModelPredstava(predstave);
                 forma.getTblPredstave().setModel(tmp);
+                
+                try(PrintWriter out = new PrintWriter(new FileWriter("predstave.json"))){
+        			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        			out.print(gson.toJson(predstave));
+        		} catch (IOException e) {
+        			e.printStackTrace();
+        		}
+                forma.prikaziPoruku("Predstave su sačuvane u JSON fajl.", "JSON");
             } else {
                 forma.dispose();
             }
